@@ -32,10 +32,10 @@
 
 <script setup>
 import Header from '@component/Header.vue'
-import { storeToRefs } from 'pinia'
 import { useTodoStore } from '@store/todo'
 const todoStore = useTodoStore()
-const { items, item, count } = storeToRefs(todoStore)
+// 响应式语法糖解构
+const { items, item, count } = $(todoStore)
 </script>
 
 <style scoped>

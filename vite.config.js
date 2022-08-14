@@ -5,7 +5,10 @@ import unocss from 'unocss/vite'
 
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      // 响应性语法糖
+      reactivityTransform: true
+    }),
     unocss()
   ],
   server: {
