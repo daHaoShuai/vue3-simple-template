@@ -1,12 +1,14 @@
 # Vue3-simple-template
 
-一个简单的vue3模板项目,使用了vue3+vue-router@4+pinia+unocss
+一个简单的vue3模板项目
+> 使用了vue3、vue-router@4、unocss、pinia、pinia-plugin-persistedstate
 
 ## 使用的依赖
 ```json
 {
   "dependencies": {
     "pinia": "^2.0.17",
+    "pinia-plugin-persistedstate": "^2.1.1",
     "vue": "^3.2.37",
     "vue-router": "4"
   },
