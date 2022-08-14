@@ -25,6 +25,18 @@
         <div m="t-5">
           <RouterLink class="btn" to="/about">去关于页</RouterLink>
         </div>
+        <div w="1/2" text="blue-500" m="t-10">
+          <div m="b-4">
+            <template v-if="isOK">
+              <h2>{{ title }}</h2>
+              <p>{{ joke }}</p>
+            </template>
+            <template v-else>
+              加载中...
+            </template>
+          </div>
+          <span @click="getJoke" class="btn">换个笑话</span>
+        </div>
       </div>
     </div>
   </div>
@@ -36,6 +48,23 @@ import { useTodoStore } from '@store/todo'
 const todoStore = useTodoStore()
 // 响应式语法糖解构
 const { items, item, count } = $(todoStore)
+
+let isOK = $ref(true)
+let title = $ref('')
+let joke = $ref('')
+
+// 获取笑话
+const getJoke = async () => {
+  isOK = false
+  const res = await fetch('https://api.vvhan.com/api/joke?type=json')
+  const response = await res.json()
+  title = response.title
+  joke = response.joke
+  isOK = true
+}
+
+getJoke()
+
 </script>
 
 <style scoped>
